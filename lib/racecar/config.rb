@@ -117,7 +117,7 @@ module Racecar
     string :ssl_key_password
 
     desc "SASL mechanism to use for authentication"
-    string :sasl_mechanism, allowed_values: %w{GSSAPI PLAIN SCRAM-SHA-256 SCRAM-SHA-512}
+    string :sasl_mechanism, allowed_values: %w{GSSAPI PLAIN SCRAM-SHA-256 SCRAM-SHA-512 OAUTHBEARER}
 
     desc "Kerberos principal name that Kafka runs as, not including /hostname@REALM"
     string :sasl_kerberos_service_name

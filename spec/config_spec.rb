@@ -17,6 +17,7 @@ RSpec.describe Racecar::Config do
       config.sasl_mechanism = "PLAIN"
       config.sasl_mechanism = "SCRAM-SHA-256"
       config.sasl_mechanism = "SCRAM-SHA-512"
+      config.sasl_mechanism = "OAUTHBEARER"
     }.not_to raise_exception
 
     expect {
