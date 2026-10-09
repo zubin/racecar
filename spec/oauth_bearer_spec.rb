@@ -102,6 +102,14 @@ RSpec.describe Racecar::OAuthBearer do
       expect(client).to be_closed
     end
 
+    it "closes clients created without a token provider" do
+      client = double("client", close: nil)
+
+      described_class.close_client(client)
+
+      expect(client).to have_received(:close)
+    end
+
     it "stops refreshing tokens for the client" do
       client = create_client(:producer)
       name = client.name

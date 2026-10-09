@@ -23,7 +23,7 @@ module Racecar
       end
 
       def close_client(client)
-        @mutex.synchronize { @clients.delete(client.name) }
+        @mutex.synchronize { @clients.reject! { |_, (registered, _)| registered.equal?(client) } }
         client.close
       end
 
