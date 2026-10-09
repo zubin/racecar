@@ -298,6 +298,8 @@ module Racecar
     end
     attr_writer :instrumenter
 
+    attr_accessor :oauth_token_provider
+
     def install_liveness_probe
       liveness_probe.tap(&:install)
     end

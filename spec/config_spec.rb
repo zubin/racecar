@@ -280,6 +280,19 @@ RSpec.describe Racecar::Config do
     end
   end
 
+  describe "#oauth_token_provider" do
+    it "defaults to nil" do
+      expect(config.oauth_token_provider).to be_nil
+    end
+
+    it "can be set in Ruby" do
+      provider = -> { {} }
+      config.oauth_token_provider = provider
+
+      expect(config.oauth_token_provider).to be(provider)
+    end
+  end
+
   describe "#install_liveness_probe" do
     it "delegates to LivenessProbe#install" do
       expect(config.liveness_probe).to receive(:install)
